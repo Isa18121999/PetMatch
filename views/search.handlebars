@@ -1,0 +1,116 @@
+<!--Navbar. With semantic UI, navbar is just called a menu.-->
+{{> pets/navbar-block}} 
+
+<div class="ui container">
+
+    <div class="ui stackable two column grid main-content-section">
+        <div class="row">
+            <!--Pet search results section-->
+            <div class="ten wide column" id="search-results">
+
+                <!--Dynamically create pet profile div for each pet returned from the petfinder API-->
+                <!--Display results here-->
+            </div>
+            <!--Pet search form-->
+            <div class="six wide column">
+                <div id="header" class="page-header"> 
+
+                    <h1>Search for the perfect pet<h1>
+                </div>				
+                <div class="ui sidebar">
+                    ...
+                </div>
+                <div class="pusher">
+                    {{!-- <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false"
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div id="fb-root"></div> --}}
+                    {{!--
+                    <a href="/auth/facebook" target="_blank">
+                        <button type="button" class="btn btn-success">Facebook</button>
+                    </a> --}}
+                    <script>
+
+                        function statusChangeCallback(response) {
+                            console.log('statusChangeCallback');
+                            console.log(response);
+
+                            if (response.status === 'connected') {
+                                // Logged into your app and Facebook.
+                                testAPI();
+                            } else {
+                                // The person is not logged into your app or we are unable to tell.
+                                console.log("not logged on");
+                            }
+                        }
+
+
+                        function checkLoginState() {
+                            FB.getLoginStatus(function (response) {
+                                statusChangeCallback(response);
+                            });
+                        }
+
+                        window.fbAsyncInit = function () {
+                            FB.init({
+                                appId: '2072161516400339',
+                                cookie: true,  // enable cookies to allow the server to access 
+                                // the session
+                                xfbml: true,  // parse social plugins on this page
+                                version: 'v2.12' // use graph api version 2.8
+                            });
+
+                            FB.getLoginStatus(function (response) {
+                                statusChangeCallback(response);
+                            });
+
+                        };
+
+                        // Load the SDK asynchronously
+                        (function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = "https://connect.facebook.net/en_US/sdk.js";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+
+
+                        function testAPI() {
+                            console.log('Welcome!  Fetching your information.... ');
+                            FB.api('/me', function (response) {
+                                console.log('Successful login for: ' + response.name);
+                                console.log(response);
+
+                            });
+                        }
+                    </script>
+                    <!--Search form-->
+                     {{> pets/petsearch-form}} 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+<!--https://stackoverflow.com/questions/32152442/semantic-ui-footer-at-the-end-->
+{{> pets/footer-block}} 
+
+<!--Opens the About modal in the hamburger menu-->
+{{> modals/about-modal}} 
+
+<!--Opens the Contact modal in the hamburger menu-->
+{{> modals/contact-modal}}
+
+<!--Opens the Help modal in the hamburger menu-->
+{{> modals/help-modal}}
+
+<!--Opens the Logout modal in the hamburger menu-->
+{{> modals/logout-modal}} 
+
+<!--Opens the pet descripion modal in the search results section of the saved pets page-->
+{{> modals/pet-profile-modal}}
+
+
+

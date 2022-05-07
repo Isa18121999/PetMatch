@@ -1,0 +1,58 @@
+<!-- html output of search results -->
+<!--Navbar. With semantic UI, navbar is just called a menu.-->
+{{> pets/navbar-block}}  
+ <div class="ui container"> 
+    <div class="ui stackable two column grid center aligned">
+        <div id="header">
+            <h1 class="page-header">My saved pets<h1>
+        </div>
+    </div>
+    <div class="ui two column grid stackable main-content-section center aligned">
+        <div class="stretched row">
+             <div class="column">	
+                <div class="ui fluid card">
+                    <div class="header home-page-header">
+                        <h2>Pet compatibility assessment results</h2>
+                    </div>
+                    <div class="content pet-match-results">
+                        <!--Clear all my match results-->
+                        <!--Button to remove all quiz results from saved pets page and from the database.-->
+		                <button class="ui button" id="delete-match-results"><i class="trash icon"></i> Clear ALL</button> 
+                        <!--Saved pet compatibility results go here.-->
+                    </div>
+                </div>				
+                <div class="ui fluid card" id="liked-pets-card">
+
+                    <div class="header home-page-header">
+                        <h2>Liked pets list</h2>
+                    </div>
+                    <div class="content">
+                        {{> pets/pets-liked}}
+                    </div>
+                </div>				                    
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer-->
+<!--https://stackoverflow.com/questions/32152442/semantic-ui-footer-at-the-end-->
+{{> pets/footer-block}} 
+
+<!--Opens the About modal in the hamburger menu-->
+{{> modals/about-modal}} 
+
+<!--Opens the Contact modal in the hamburger menu-->
+{{> modals/contact-modal}}
+
+<!--Opens the Help modal in the hamburger menu-->
+{{> modals/help-modal}}
+
+<!--Opens the Logout modal in the hamburger menu-->
+{{> modals/logout-modal}} 
+
+<!--Opens the delete pet modal when user wants to remove a pet from his/her saved pet list.-->
+{{> modals/delete-modal}}
+
+<!--Opens the find matching pets modal at the end of the quiz-->
+{{> modals/find-matching-pets}}
+

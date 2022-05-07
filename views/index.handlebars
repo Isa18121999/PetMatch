@@ -1,0 +1,73 @@
+
+<!--Navbar. With semantic UI, navbar is just called a menu.-->
+{{> pets/navbar-block}} 
+
+ <div class="ui container"> 
+    <div class="ui stackable two column grid center aligned">
+        <!--Header row-->
+        <div id="header">
+            <h1 class="page-header">Find your next companion<h1>
+        </div>
+    </div>
+    <div class="ui two column grid main-content-section center aligned">
+        <!--User has two options. They can either...
+            take a compatability quiz or go straight to search page.-->
+        <div class="row">
+            <div class="column center aligned">					
+                <div class="ui fluid card center aligned">
+                    <div class="header home-page-header center aligned">
+                        <h2>Looking for the perfect pet?</h2>
+                    </div>
+                    <div class="content center aligned">
+                        <h3>Take the compatibility quiz now!</h3>
+                        <h4>(Takes 1 to 2 minutes)</h4>
+                        <br>
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false"
+                            data-auto-logout-link="false" data-use-continue-as="false"></div>
+                        <div id="fb-root start-quiz-btn"></div>
+                        <br>
+                    </div>
+                    <div class="extra content">
+                        <a href="quiz">
+                            <button id="take-quiz-btn" class="ui fluid blue button">
+                                <h4>Take quiz</h4>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                                
+                <div class="ui fluid card" id="search-for-card">
+                    <div class="header home-page-header center aligned">
+                        <h2>Don't want to take a quiz?</h2>
+                    </div>
+                    <div class="content center aligned">
+                        <h3>Search for a pet in your area.</h3>
+                        <h4>Browse over 300,000 adoptable pets across 11,000 animal welfare organizations (AWO).</h4>
+                    </div>
+                    <div class="extra content">
+                        <a href="petsearch">
+                            <button id="search-for-btn" class="ui fluid blue button">
+                                <h4>Search pets</h4>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer-->
+<!--https://stackoverflow.com/questions/32152442/semantic-ui-footer-at-the-end-->
+{{> pets/footer-block}} 
+
+<!--Opens the About modal in the hamburger menu-->
+{{> modals/about-modal}} 
+
+<!--Opens the Contact modal in the hamburger menu-->
+{{> modals/contact-modal}}
+
+<!--Opens the Help modal in the hamburger menu-->
+{{> modals/help-modal}}
+
+<!--Opens the Logout modal in the hamburger menu-->
+{{> modals/logout-modal}} 
