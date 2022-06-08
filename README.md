@@ -76,10 +76,11 @@ For more information about the MVC design pattern, check out the following resou
   * https://docs.microsoft.com/en-us/aspnet/core/mvc/overview
 
 ## <a name="contributors"></a> Contributors
-* Back End Developer: Amin Kedir
-* Back End Developer: Robin Bertuccelli 
-* Front End Developer: Joy Hollela
-* Front End Developer/Project Manager: Phil Stubbs
+* Back End Developer: Jimmy Grados, Marissa Lopez 
+
+
+* Front End Developer: Isabella Montoya 
+
 
 ## <a name="getting-started"></a> Getting started
 The following section will take you through the steps of setting up this application and getting it running locally on your computer.
