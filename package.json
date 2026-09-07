@@ -1,45 +1,32 @@
 {
   "name": "petmatch",
   "version": "1.0.0",
-  "description": "Pet adoption match page",
+  "description": "Pet adoption matching application",
   "main": "server.js",
   "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --test test/server.test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robinb242/PetMatch.git"
+    "url": "git+https://github.com/Isa18121999/IncluWork.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/robinb242/PetMatch/issues"
+    "url": "https://github.com/Isa18121999/IncluWork/issues"
   },
-  "homepage": "https://github.com/robinb242/PetMatch#readme",
+  "homepage": "https://github.com/Isa18121999/IncluWork#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "dotenv": "^5.0.1",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "handlebars": "^4.7.6",
-    "mysql": "^2.18.1",
-    "mysql2": "^1.7.0",
-    "npm": "^6.14.8",
-    "passport-facebook": "^2.1.1",
-    "sequelize": "^5.15.1"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-handlebars": "^7.1.3",
+    "handlebars": "^4.7.8",
+    "mysql2": "^3.12.0",
+    "sequelize": "^6.37.5"
   },
   "devDependencies": {
-    "browserify": "^16.2.3",
-    "chai": "^4.2.0",
-    "karma": "^2.0.5",
-    "karma-browserify": "^5.3.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-commonjs": "^1.0.0",
-    "karma-mocha-reporter": "^2.2.5",
-    "mocha": "^5.2.0",
-    "nightmare": "^3.0.2",
-    "watchify": "^3.11.1"
+    "supertest": "^7.1.0"
   }
 }

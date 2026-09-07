@@ -18,8 +18,6 @@ var userQuizValues = [];
 
 var findMatchPets;
 
-//Construct query URL to get pet data from petfinder API to return matching pets.
-// var queryURL = "https://api.petfinder.com/pet.find?key=98d54d4a2d02242de8d84d2171223995&breed=";
 // var queryURL2;
 
 //Create variable for LIKE button so that we can create it using jQuery.
@@ -435,5 +433,4 @@ $.get("/api/matches", function(matchData) {
 // }
 // });
 // }
-
 
