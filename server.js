@@ -2,7 +2,6 @@
 require("dotenv").config();
 
 var express = require("express");
-var bodyParser = require("body-parser");
 
 //Requiring models
 var db = require("./models");
@@ -17,27 +16,34 @@ var app = express();
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname + '/public'));
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 require("./controllers/petMatchController.js")(app);
 require("./controllers/savedPetsController.js")(app);
+require("./controllers/petfinderController.js")(app);
 
-
-//App is listening...
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("App now listening at localhost:" + PORT);
-  });
+app.get("/health", function(req, res) {
+  res.status(200).json({ status: "ok" });
 });
 
+app.use(function(err, req, res, next) {
+  console.error(err);
+  res.status(500).json({ error: "An unexpected server error occurred." });
+});
+
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on port " + PORT);
+  });
+}).catch(function(error) {
+  console.error("Unable to connect to the database:", error.message);
+  process.exit(1);
+});

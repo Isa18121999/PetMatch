@@ -20,8 +20,15 @@
   * [Design improvements](#design-improvements)
   * [Issues](#Issues)
 
-## <a name="live"></a>Live
-https://pet-match-app.herokuapp.com/
+## <a name="live"></a> Deployment
+
+The former Heroku deployment is no longer maintained. The application is ready to deploy as a Docker web service on any provider that supplies a **MySQL** database (for example, Railway, Render with an external MySQL provider, or Fly.io).
+
+1. Create a MySQL database and set its connection string as `DATABASE_URL`.
+2. Create a Petfinder developer application and set `PETFINDER_CLIENT_ID` and `PETFINDER_CLIENT_SECRET`. These credentials remain server-side; they are never sent to the browser.
+3. Deploy using the included `Dockerfile`. The container listens on the `PORT` supplied by the platform and exposes `GET /health` for health checks.
+
+For local development, copy `.env.example` to `.env`, configure the values, create the `petMatchDB` database, and run `npm install` followed by `npm start`. Node.js 20 or later is required.
 
 ## <a name="screenshots"></a> Screenshots
 

@@ -9,7 +9,11 @@ var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
 if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  var connectionString = process.env[config.use_env_variable] || process.env.JAWSDB_URL;
+  if (!connectionString) {
+    throw new Error("DATABASE_URL must be configured when NODE_ENV=production.");
+  }
+  var sequelize = new Sequelize(connectionString, config);
 } else {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
@@ -20,7 +24,7 @@ fs
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(file => {
-    var model = sequelize['import'](path.join(__dirname, file));
+    var model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
 
